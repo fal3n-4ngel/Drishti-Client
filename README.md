@@ -1,5 +1,5 @@
 # Drishti 
-Drishti is a software created as a project for Define hack 2022, which we decided to build a little more
+Drishti is a software created as a project for Define hack 2022, which we decided to build a little more.
 This app aims to make reporting and spreading the news of accidents and dangers easier and effective. 
 
 ## Drishti Client
