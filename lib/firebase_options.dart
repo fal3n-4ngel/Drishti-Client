@@ -51,6 +51,7 @@ class DefaultFirebaseOptions {
     appId: '1:646397277659:android:c68c64e477c190158963fe',
     messagingSenderId: '646397277659',
     projectId: 'flutter-8c223',
+    databaseURL: 'https://flutter-8c223-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'flutter-8c223.appspot.com',
   );
 
@@ -59,6 +60,7 @@ class DefaultFirebaseOptions {
     appId: '1:646397277659:ios:90ca6fa96e2e02148963fe',
     messagingSenderId: '646397277659',
     projectId: 'flutter-8c223',
+    databaseURL: 'https://flutter-8c223-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'flutter-8c223.appspot.com',
     iosClientId: '646397277659-t74oujlp34cvqbpik0ba72eqa0tt2dds.apps.googleusercontent.com',
     iosBundleId: 'com.example.fireter',
@@ -69,6 +71,7 @@ class DefaultFirebaseOptions {
     appId: '1:646397277659:ios:90ca6fa96e2e02148963fe',
     messagingSenderId: '646397277659',
     projectId: 'flutter-8c223',
+    databaseURL: 'https://flutter-8c223-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'flutter-8c223.appspot.com',
     iosClientId: '646397277659-t74oujlp34cvqbpik0ba72eqa0tt2dds.apps.googleusercontent.com',
     iosBundleId: 'com.example.fireter',

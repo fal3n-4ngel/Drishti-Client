@@ -37,6 +37,9 @@ dependencies:
   flutterfire_ui: ^0.4.3+19
   mongo_dart: ^0.8.0
   flutter_native_splash: ^2.2.9
+  firebase_crashlytics: ^3.0.5
+  firebase_database: ^10.0.5
+  url_launcher: ^6.1.6
 
 dev_dependencies:
   flutter_test:

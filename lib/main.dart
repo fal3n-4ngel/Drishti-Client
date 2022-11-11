@@ -1,4 +1,7 @@
 // ignore_for_file: prefer_const_constructors, depend_on_referenced_packages
+import 'dart:ui';
+
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:fireter/Screens/home.dart';
 import 'package:fireter/Screens/profile.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +21,7 @@ var version = 2.8;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
+    name: 'Flutter',
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
@@ -25,9 +29,24 @@ Future<void> main() async {
   FlutterFireUIAuth.configureProviders([
     const EmailProviderConfiguration(),
   ]);
+  FlutterError.onError = (errorDetails) {
+    FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+  };
+  // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics
+
+  FirebaseDatabase database = FirebaseDatabase.instance;
   DatabaseReference ref = FirebaseDatabase.instance.ref();
+  final snapshot = await ref.child('version').get();
+
+  newversion = snapshot.value;
+  update = (version != newversion || "$version" != newversion) ? true : false;
   final auth = FirebaseAuth.instance;
   user = auth.currentUser?.displayName;
+  if (update) {
+    print("true");
+  } else {
+    print("false");
+  }
   runApp(const MyApp());
 }
 

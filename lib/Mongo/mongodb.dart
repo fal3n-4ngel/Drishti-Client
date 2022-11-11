@@ -40,7 +40,7 @@ class MongoDatabase {
         }
       ]);
     } catch (e) {
-      print("$e");
+      throw Exception(e);
     }
   }
 
@@ -51,7 +51,7 @@ class MongoDatabase {
       var collection = db.collection(COLLECTION_NAME);
       await collection.remove({'_id': id});
     } catch (e) {
-      print("$e");
+      throw Exception(e);
     }
   }
 
@@ -62,7 +62,7 @@ class MongoDatabase {
       var collection = db.collection(COLLECTION_NAME);
       data = await collection.find().toList();
     } catch (e) {
-      print("$e");
+      throw Exception(e);
     }
   }
 }

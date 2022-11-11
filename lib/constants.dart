@@ -13,3 +13,5 @@ var image1 = AssetImage("assets/Clouds.png");
 
 var nam;
 var id;
+var update = false;
+var newversion;

@@ -1,13 +1,17 @@
 // ignore_for_file: depend_on_referenced_packages, prefer_const_constructors, avoid_print
 
+import 'dart:async';
+
 import 'package:fireter/Mongo/mongovars.dart';
 import 'package:fireter/Mongo/mongodb.dart';
 import 'package:fireter/Screens/profile.dart';
 import 'package:fireter/Screens/widgets.dart';
+import 'package:fireter/main.dart';
 import 'package:flutter/material.dart';
 import 'package:fireter/constants.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:url_launcher/url_launcher.dart';
 
 Future<void> dataset(refresh, context) async {
   // weather fetching data
@@ -36,6 +40,12 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
+Future<void> _launchURL({required String url}) async {
+  if (!await launchUrl(Uri.parse(url))) {
+    throw 'Could not launch $url';
+  }
+}
+
 class _HomeScreenState extends State<HomeScreen> {
   refresh() {
     setState(() {
@@ -58,7 +68,44 @@ class _HomeScreenState extends State<HomeScreen> {
         user = "User";
       });
     }
-    setState(() {});
+
+    Timer(
+        const Duration(seconds: 3),
+        () => {
+              update
+                  ? showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        update = false;
+                        return Expanded(
+                          child: AlertDialog(
+                            title: Text('New Update'),
+                            content: Text('Version $newversion now available'),
+                            actions: [
+                              ElevatedButton(
+                                onPressed: () {
+                                  _launchURL(
+                                      url:
+                                          "https://github.com/fal3n-4ngel/Drishti-Client/releases");
+                                  Navigator.of(context, rootNavigator: true)
+                                      .pop();
+                                },
+                                child: Text('Download Now'),
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  Navigator.of(context, rootNavigator: true)
+                                      .pop();
+                                },
+                                child: Text('Later'),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    )
+                  : null
+            });
     return Scaffold(
       body: Column(children: [
         // Home Screen app bar
@@ -91,6 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                       ),
                     );
+
                     setState(() {});
                   },
                   icon: const Icon(
