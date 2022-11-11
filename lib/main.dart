@@ -1,5 +1,9 @@
 /*
 All Rights Reserved @ Friendly Neighborhood Tekys @fal4n-4ngel
+
+Try not to Copy paste this shit(proly useless..),
+If you find anything really dumb or really good try to contact me.
+
 */
 
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
