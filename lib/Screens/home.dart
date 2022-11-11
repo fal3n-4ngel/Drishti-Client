@@ -3,6 +3,7 @@
 import 'package:fireter/Mongo/mongovars.dart';
 import 'package:fireter/Mongo/mongodb.dart';
 import 'package:fireter/Screens/profile.dart';
+import 'package:fireter/Screens/report.dart';
 import 'package:fireter/Screens/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:fireter/constants.dart';
@@ -81,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 1),
                 )),
             Container(
-              padding: EdgeInsets.only(top: 45, right: 20),
+              padding: EdgeInsets.only(top: 45, right: 10),
               child: IconButton(
                   iconSize: 40,
                   onPressed: () {
@@ -179,19 +180,31 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 1),
           ),
         ),
+
         SizedBox(
           //   %%%% The List View
           height: 350,
           child: net
-              ? ListView(
-                  padding: EdgeInsets.all(20),
-                  children: idd1.map((strone) {
-                    return card2(strone);
-                  }).toList(),
-                )
-              : Image(image: image1),
+              ? ListView.builder(
+                  padding: EdgeInsets.all(15),
+                  itemCount: n,
+                  itemBuilder: (BuildContext context, int index) {
+                    return card2(n - index, refresh);
+                  })
+              : Image(image: AssetImage("assets/noalerts.jpg")),
         ),
       ]),
+/*
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Color.fromARGB(255, 236, 236, 236),
+        foregroundColor: Colors.red,
+        onPressed: () {},
+        child: const Icon(
+          Icons.add_location_alt,
+        ),
+      ),
+
+      */
     );
   }
 }

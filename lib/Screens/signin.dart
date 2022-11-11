@@ -48,28 +48,39 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
         body: _pageOptions[selectedPage],
-        bottomNavigationBar: BottomNavigationBar(
-          items: const [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.home, size: 30), label: 'Home'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.add_location_alt, size: 30), label: 'Report'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.contact_mail, size: 30), label: 'Contact'),
-          ],
-          selectedItemColor: Colors.black,
-          elevation: 5.0,
-          unselectedItemColor: Colors.black38,
-          currentIndex: selectedPage,
-          backgroundColor: Colors.white,
-          onTap: (index) {
-            setState(() {
-              MongoDatabase.fetch();
-              selectedPage = index;
-            });
-          },
-        ));
+        bottomNavigationBar: Card(
+            margin: EdgeInsets.all(10),
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(20),
+              ),
+            ),
+            child: Container(
+                child: ClipRRect(
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                    child: BottomNavigationBar(
+                      items: const [
+                        BottomNavigationBarItem(
+                            icon: Icon(Icons.home, size: 30), label: 'Home'),
+                        BottomNavigationBarItem(
+                            icon: Icon(Icons.add_location_alt, size: 30),
+                            label: 'Report'),
+                        BottomNavigationBarItem(
+                            icon: Icon(Icons.contact_mail, size: 30),
+                            label: 'Contact'),
+                      ],
+                      selectedItemColor: Color.fromARGB(255, 0, 0, 0),
+                      elevation: 20.0,
+                      unselectedItemColor: Color.fromARGB(95, 36, 36, 36),
+                      currentIndex: selectedPage,
+                      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+                      onTap: (index) {
+                        setState(() {
+                          MongoDatabase.fetch();
+                          selectedPage = index;
+                        });
+                      },
+                    )))));
   }
 }

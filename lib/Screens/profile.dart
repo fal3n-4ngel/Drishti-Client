@@ -23,7 +23,7 @@ class _MyWidgetState extends State<ProfileScreenUi> {
     return ProfileScreen(
       children: [
         Container(
-          child: Text("Some Important text"),
+          child: Text("Primary Location : Thiruvanathapuram"),
         ),
       ],
       // no providerConfigs property here as well

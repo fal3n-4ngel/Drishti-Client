@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fireter/Mongo/mongovars.dart';
 import 'package:fireter/Mongo/mongodb.dart';
+import 'package:fireter/constants.dart';
+import 'package:flutter/services.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class reportui extends StatefulWidget {
   reportui({Key? key}) : super(key: key);
@@ -51,7 +54,6 @@ class _reportui extends State<reportui> {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     final _formKey = GlobalKey<FormState>();
-    String dropdownvalue = '1';
 
     // List of items in our dropdown menu
     var items = ['1', '2', '3'];
@@ -107,36 +109,25 @@ class _reportui extends State<reportui> {
                       ),
                     ),
                     Container(
-                        padding: EdgeInsets.all(formpad),
-                        width: 750.0,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text("Intensity Grade",
-                                style: TextStyle(
-                                    color: Color.fromRGBO(0, 0, 0, 1),
-                                    fontFamily: 'Comfortaa',
-                                    fontSize: 18,
-                                    letterSpacing: 0,
-                                    fontWeight: FontWeight.w300,
-                                    height: 1)),
-                            DropdownButton(
-                              value: dropdownvalue,
-                              icon: const Icon(Icons.keyboard_arrow_down),
-                              items: items.map((String items) {
-                                return DropdownMenuItem(
-                                  value: items,
-                                  child: Text(items),
-                                );
-                              }).toList(),
-                              onChanged: (String? newValue) {
-                                setState(() {
-                                  dropdownvalue = newValue!;
-                                });
-                              },
-                            ),
-                          ],
-                        )),
+                      padding: EdgeInsets.all(formpad),
+                      width: 750.0,
+                      child: TextFormField(
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(RegExp('[1-3.,]')),
+                        ],
+                        controller: gradeController,
+                        decoration: const InputDecoration(
+                          labelText: "Intensity Grade(1-3)",
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter some text';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
                     Container(
                       padding: EdgeInsets.all(formpad),
                       width: 750.0,
@@ -192,16 +183,23 @@ class _reportui extends State<reportui> {
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('Processing Data')),
+                            const SnackBar(
+                                padding: EdgeInsets.all(10),
+                                duration: Duration(milliseconds: 400),
+                                content: Text('Submitting Data')),
                           );
                           setState(() {
+                            final auth = FirebaseAuth.instance;
+                            var user1 = auth.currentUser?.displayName;
+                            user = "$user1";
                             location = locationController.text;
                             grade = dropdownvalue;
                             alert = alertController.text;
                             details = detailsController.text;
                             faculty = facultyController.text;
+                            nam = user;
                             MongoDatabase.push(
-                                location, faculty, grade, alert, details);
+                                location, faculty, grade, alert, details, nam);
                           });
                         }
                       },

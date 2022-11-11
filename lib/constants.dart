@@ -10,3 +10,6 @@ var weather1 = "..";
 var temperature = "..";
 var humidity = "..";
 var image1 = AssetImage("assets/Clouds.png");
+var dropdownvalue = '1';
+var nam;
+var id;
