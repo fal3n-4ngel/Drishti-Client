@@ -1,16 +1,24 @@
 import 'dart:developer';
-import 'package:fireter/constants.dart';
 import 'package:mongo_dart/mongo_dart.dart';
 import 'package:fireter/Mongo/mongovars.dart';
 
 class MongoDatabase {
   static connect() async {
-    var db = await Db.create(MONGO_URL);
-    await db.open();
-    inspect(db);
-    var status = db.serverStatus();
-    var collection = db.collection(COLLECTION_NAME);
-    data = await collection.find().toList();
+    try {
+      var db = await Db.create(MONGO_URL);
+      await db.open();
+      inspect(db);
+      var status = db.serverStatus();
+      var collection = db.collection(COLLECTION_NAME);
+      data = await collection.find().toList();
+    } catch (e) {
+      var db = await Db.create(MONGO_URL);
+      await db.open();
+      inspect(db);
+      var status = db.serverStatus();
+      var collection = db.collection(COLLECTION_NAME);
+      data = await collection.find().toList();
+    }
   }
 
   static push(var location, var faculty, var grade, var alert, var details,
