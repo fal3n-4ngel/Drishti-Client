@@ -24,6 +24,8 @@ This app aims to make reporting and spreading the news of accidents and dangers 
     - uses Firebase for login and auth.
     - uses MongoDB for dataset.
   + Functional UI that needs abit more touchups and theming.
+  + Added Google Crashlytics, Firebase Database etc
+  + Added version control and notifications.
 # Working On
   + Implementation of geolocation fetching without time/app lag
   + Fetching dataset to train a Vision api ml model (yes googling images and feeding 🫠)
