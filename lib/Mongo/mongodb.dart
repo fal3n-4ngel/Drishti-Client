@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable, avoid_print
+
 import 'dart:developer';
 import 'package:mongo_dart/mongo_dart.dart';
 import 'package:fireter/Mongo/mongovars.dart';
@@ -37,7 +39,9 @@ class MongoDatabase {
           "name": nam
         }
       ]);
-    } catch (e) {}
+    } catch (e) {
+      print("$e");
+    }
   }
 
   static remov(id) async {

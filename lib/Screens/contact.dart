@@ -1,5 +1,5 @@
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 
 class ContactScreen extends StatefulWidget {
@@ -66,13 +66,13 @@ class _MyWidgetState extends State<ContactScreen> {
                         width: 150,
                         child: ElevatedButton(
                           onPressed: () {},
-                          child: Text(
-                            "Fer-Win",
-                            textAlign: TextAlign.justify,
-                          ),
                           style: ButtonStyle(
                             backgroundColor:
                                 MaterialStateProperty.all(Colors.black),
+                          ),
+                          child: Text(
+                            "Fer-Win",
+                            textAlign: TextAlign.justify,
                           ),
                         ),
                       )
@@ -96,13 +96,13 @@ class _MyWidgetState extends State<ContactScreen> {
                         width: 150,
                         child: ElevatedButton(
                           onPressed: () {},
-                          child: Text(
-                            " fal3n-4ngel",
-                            textAlign: TextAlign.justify,
-                          ),
                           style: ButtonStyle(
                             backgroundColor:
                                 MaterialStateProperty.all(Colors.black),
+                          ),
+                          child: Text(
+                            " fal3n-4ngel",
+                            textAlign: TextAlign.justify,
                           ),
                         ),
                       )
@@ -126,13 +126,13 @@ class _MyWidgetState extends State<ContactScreen> {
                         width: 150,
                         child: ElevatedButton(
                           onPressed: () {},
-                          child: Text(
-                            "Liya-Susan",
-                            textAlign: TextAlign.justify,
-                          ),
                           style: ButtonStyle(
                             backgroundColor:
                                 MaterialStateProperty.all(Colors.black),
+                          ),
+                          child: Text(
+                            "Liya-Susan",
+                            textAlign: TextAlign.justify,
                           ),
                         ),
                       )
@@ -156,13 +156,13 @@ class _MyWidgetState extends State<ContactScreen> {
                         width: 150,
                         child: ElevatedButton(
                           onPressed: () {},
-                          child: Text(
-                            "ice-weasel",
-                            textAlign: TextAlign.justify,
-                          ),
                           style: ButtonStyle(
                             backgroundColor:
                                 MaterialStateProperty.all(Colors.black),
+                          ),
+                          child: Text(
+                            "ice-weasel",
+                            textAlign: TextAlign.justify,
                           ),
                         ),
                       )
@@ -186,13 +186,13 @@ class _MyWidgetState extends State<ContactScreen> {
                         width: 150,
                         child: ElevatedButton(
                           onPressed: () {},
-                          child: Text(
-                            "ChristinaMathews",
-                            textAlign: TextAlign.justify,
-                          ),
                           style: ButtonStyle(
                             backgroundColor:
                                 MaterialStateProperty.all(Colors.black),
+                          ),
+                          child: Text(
+                            "ChristinaMathews",
+                            textAlign: TextAlign.justify,
                           ),
                         ),
                       )

@@ -1,3 +1,4 @@
+// ignore_for_file: prefer_const_constructors, depend_on_referenced_packages
 import 'package:fireter/Screens/home.dart';
 import 'package:fireter/Screens/profile.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,9 @@ import 'package:fireter/Mongo/mongodb.dart';
 import 'dart:async';
 import 'package:fireter/Screens/contact.dart';
 import 'package:fireter/Screens/report.dart';
+import 'package:firebase_database/firebase_database.dart';
 
+var version = 2.8;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -22,9 +25,10 @@ Future<void> main() async {
   FlutterFireUIAuth.configureProviders([
     const EmailProviderConfiguration(),
   ]);
+  DatabaseReference ref = FirebaseDatabase.instance.ref();
   final auth = FirebaseAuth.instance;
   user = auth.currentUser?.displayName;
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class SplashScreen extends StatefulWidget {
@@ -71,6 +75,8 @@ class _SplashScreenState extends State<SplashScreen> {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final auth = FirebaseAuth.instance;
@@ -87,6 +93,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyAppScreen extends StatelessWidget {
+  const MyAppScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final auth = FirebaseAuth.instance;
@@ -117,13 +125,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   int selectedPage = 0;
   final _pageOptions = [HomeScreen(), reportui(), ContactScreen()];
 
@@ -138,31 +139,30 @@ class _MyHomePageState extends State<MyHomePage> {
                 Radius.circular(20),
               ),
             ),
-            child: Container(
-                child: ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(30)),
-                    child: BottomNavigationBar(
-                      items: const [
-                        BottomNavigationBarItem(
-                            icon: Icon(Icons.home, size: 30), label: 'Home'),
-                        BottomNavigationBarItem(
-                            icon: Icon(Icons.add_location_alt, size: 30),
-                            label: 'Report'),
-                        BottomNavigationBarItem(
-                            icon: Icon(Icons.contact_mail, size: 30),
-                            label: 'Contact'),
-                      ],
-                      selectedItemColor: Color.fromARGB(255, 0, 0, 0),
-                      elevation: 20.0,
-                      unselectedItemColor: Color.fromARGB(95, 36, 36, 36),
-                      currentIndex: selectedPage,
-                      backgroundColor: Color.fromARGB(255, 255, 255, 255),
-                      onTap: (index) {
-                        setState(() {
-                          MongoDatabase.fetch();
-                          selectedPage = index;
-                        });
-                      },
-                    )))));
+            child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(30)),
+                child: BottomNavigationBar(
+                  items: const [
+                    BottomNavigationBarItem(
+                        icon: Icon(Icons.home, size: 30), label: 'Home'),
+                    BottomNavigationBarItem(
+                        icon: Icon(Icons.add_location_alt, size: 30),
+                        label: 'Report'),
+                    BottomNavigationBarItem(
+                        icon: Icon(Icons.contact_mail, size: 30),
+                        label: 'Contact'),
+                  ],
+                  selectedItemColor: Color.fromARGB(255, 0, 0, 0),
+                  elevation: 20.0,
+                  unselectedItemColor: Color.fromARGB(95, 36, 36, 36),
+                  currentIndex: selectedPage,
+                  backgroundColor: Color.fromARGB(255, 255, 255, 255),
+                  onTap: (index) {
+                    setState(() {
+                      MongoDatabase.fetch();
+                      selectedPage = index;
+                    });
+                  },
+                ))));
   }
 }

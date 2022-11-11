@@ -1,9 +1,8 @@
-// ignore_for_file: depend_on_referenced_packages
+// ignore_for_file: depend_on_referenced_packages, prefer_const_constructors, avoid_print
 
 import 'package:fireter/Mongo/mongovars.dart';
 import 'package:fireter/Mongo/mongodb.dart';
 import 'package:fireter/Screens/profile.dart';
-import 'package:fireter/Screens/report.dart';
 import 'package:fireter/Screens/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:fireter/constants.dart';
@@ -15,7 +14,7 @@ Future<void> dataset(refresh, context) async {
   try {
     String key = '57469bdd737a35670d966f80a8d64451';
     String url = 'http://api.openweathermap.org/data/2.5/weather?';
-    String fullurl = url + "q=" + "thiruvananthapuram" + "&appid=" + key;
+    String fullurl = "${url}q=thiruvananthapuram&appid=$key";
     Uri fullurl1 = Uri.parse(fullurl);
     var response = await http.post(fullurl1);
     late var body = json.decode(response.body);
@@ -52,8 +51,6 @@ class _HomeScreenState extends State<HomeScreen> {
     }
 
     int n = data.length - 1;
-
-    late var idd1 = [for (var i = n; i >= 0; i--) i];
     dataset(refresh, context);
     setState(() {});
     if (user == null) {

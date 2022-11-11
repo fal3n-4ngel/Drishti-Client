@@ -1,9 +1,6 @@
-import 'package:fireter/Screens/contact.dart';
-import 'package:fireter/Screens/home.dart';
-import 'package:fireter/Screens/report.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterfire_ui/auth.dart';
-import 'package:fireter/Mongo/mongodb.dart';
+import 'package:fireter/constants.dart';
 
 class SignScreen extends StatefulWidget {
   const SignScreen({Key? key}) : super(key: key);
@@ -15,6 +12,7 @@ class SignScreen extends StatefulWidget {
 class _SignScreenState extends State<SignScreen> {
   @override
   Widget build(BuildContext context) {
+    user = "User";
     setState(() {});
     return SignInScreen(
       actions: [

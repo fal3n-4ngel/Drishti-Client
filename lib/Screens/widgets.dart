@@ -1,4 +1,7 @@
+// ignore_for_file: unnecessary_const
+
 import 'package:fireter/constants.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:fireter/Mongo/mongovars.dart';
 import 'package:fireter/Mongo/mongodb.dart';
@@ -9,7 +12,6 @@ Widget none() {
 }
 
 Widget card2(index, refresh) {
-  late var data1 = data[index];
   late var loc = data[index]["location"];
   late var fac = data[index]["faculty"];
   late var grad = data[index]["grade"];
@@ -17,10 +19,8 @@ Widget card2(index, refresh) {
   late var detail = data[index]["details"];
   late var nam1 = data[index]["name"];
   late var id = data[index]["_id"];
-  if (nam1 == null) {
-    nam1 = "Anonymous";
-  }
-  var color = Color.fromARGB(255, 205, 240, 7);
+  nam1 ??= "Anonymous";
+  var color = const Color.fromARGB(255, 205, 240, 7);
 
   return Card(
     shape: const RoundedRectangleBorder(
@@ -30,7 +30,7 @@ Widget card2(index, refresh) {
     ),
     elevation: 5,
     child: ExpansionTile(
-      tilePadding: EdgeInsets.all(10),
+      tilePadding: const EdgeInsets.all(10),
       subtitle: Text("Location: $loc"),
       title: title(aler, color, grad),
       children: <Widget>[
@@ -47,7 +47,7 @@ Widget card2(index, refresh) {
         )),
         (user == "admin31007")
             ? Container(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 alignment: Alignment.topRight,
                 child: ElevatedButton(
                   // ignore: prefer_const_constructors
@@ -58,10 +58,10 @@ Widget card2(index, refresh) {
                     MongoDatabase.remov(id);
                     refresh();
                   },
-                  child: Text(
+                  child: const Text(
                     'Remove',
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 255, 255, 255),
+                    style: const TextStyle(
+                        color: const Color.fromARGB(255, 255, 255, 255),
                         fontFamily: 'Comfortaa',
                         fontSize: 25,
                         letterSpacing:
@@ -71,9 +71,7 @@ Widget card2(index, refresh) {
                   ),
                 ),
               )
-            : Container(
-                child: Text(""),
-              ),
+            : const Text(""),
       ],
     ),
   );
@@ -81,19 +79,21 @@ Widget card2(index, refresh) {
 
 Widget title(aler, color, grad) {
   if (grad == '3' || grad == 3) {
-    color = Color.fromARGB(255, 240, 7, 7);
+    color = const Color.fromARGB(255, 240, 7, 7);
   } else if (grad == '2' || grad == 2) {
-    color = Color.fromARGB(255, 236, 147, 37);
+    color = const Color.fromARGB(255, 236, 147, 37);
   } else {
-    color = Color.fromARGB(255, 255, 207, 16);
+    color = const Color.fromARGB(255, 255, 207, 16);
   }
-  print(grad);
+  if (kDebugMode) {
+    print(grad);
+  }
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Container(
-        padding: EdgeInsets.only(top: 13),
+        padding: const EdgeInsets.only(top: 13),
         child: Icon(
           Icons.report,
           color: color,
@@ -101,7 +101,7 @@ Widget title(aler, color, grad) {
         ),
       ),
       Container(
-        padding: EdgeInsets.only(top: 25),
+        padding: const EdgeInsets.only(top: 25),
         child: Text(
           "$aler",
           style: const TextStyle(

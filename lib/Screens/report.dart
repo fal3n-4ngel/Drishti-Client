@@ -1,9 +1,11 @@
+// ignore_for_file: depend_on_referenced_packages, camel_case_types, prefer_const_constructors_in_immutables
+
 import 'package:flutter/material.dart';
 import 'package:fireter/Mongo/mongovars.dart';
 import 'package:fireter/Mongo/mongodb.dart';
 import 'package:fireter/constants.dart';
 import 'package:flutter/services.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart' show FirebaseAuth;
 
 class reportui extends StatefulWidget {
   reportui({Key? key}) : super(key: key);
@@ -13,18 +15,7 @@ class reportui extends StatefulWidget {
 }
 
 class _reportui extends State<reportui> {
-  @override
   String user = 'user';
-  int _index = 0;
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   final myloc = TextEditingController();
   final myint = TextEditingController();
@@ -51,12 +42,10 @@ class _reportui extends State<reportui> {
     TextEditingController alertController = TextEditingController();
     TextEditingController detailsController = TextEditingController();
 
-    double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    final _formKey = GlobalKey<FormState>();
+    final formKey = GlobalKey<FormState>();
 
     // List of items in our dropdown menu
-    var items = ['1', '2', '3'];
     double formpad = 10;
     return Scaffold(
       body: SingleChildScrollView(
@@ -74,13 +63,12 @@ class _reportui extends State<reportui> {
               ),
               elevation: 4,
               child: Form(
-                key: _formKey,
+                key: formKey,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Container(
-                        child: Text(
+                    const Text(
                       '\n Report \n',
                       textAlign: TextAlign.left,
                       style: TextStyle(
@@ -91,7 +79,7 @@ class _reportui extends State<reportui> {
                               0 /*percentages not used in flutter. defaulting to zero*/,
                           fontWeight: FontWeight.normal,
                           height: 1),
-                    )),
+                    ),
                     Container(
                       padding: EdgeInsets.all(formpad),
                       width: 750.0,
@@ -176,12 +164,12 @@ class _reportui extends State<reportui> {
                         },
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {
+                        if (formKey.currentState!.validate()) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                                 padding: EdgeInsets.all(10),
@@ -203,7 +191,7 @@ class _reportui extends State<reportui> {
                           });
                         }
                       },
-                      child: Text(
+                      child: const Text(
                         'Submit',
                         style: TextStyle(
                             color: Color.fromARGB(255, 255, 255, 255),
@@ -215,7 +203,7 @@ class _reportui extends State<reportui> {
                             height: 1),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                   ],
