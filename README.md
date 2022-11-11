@@ -36,7 +36,7 @@ This app aims to make reporting and spreading the news of accidents and dangers 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 <p align="center">
 <img src="https://github.com/fal3n-4ngel/Drishti-Client/blob/main/screenshots/3.png">
-<img src="https://github.com/fal3n-4ngel/Drishti-Client/blob/main/screenshots/4.png">
+<img src="https://github.com/fal3n-4ngel/Drishti-Client/blob/main/screenshots/5.png">
 </p>
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"></a>
 
