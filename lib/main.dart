@@ -1,4 +1,6 @@
-// ignore_for_file: prefer_const_constructors, depend_on_referenced_packages
+/*
+All Rights Reserved @ Friendly Neighborhood Tekys @fal4n-4ngel
+*/
 
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:fireter/Screens/home.dart';
