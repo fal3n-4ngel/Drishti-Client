@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_const_constructors, depend_on_referenced_packages
-import 'dart:ui';
 
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:fireter/Screens/home.dart';
@@ -17,7 +16,6 @@ import 'package:fireter/Screens/contact.dart';
 import 'package:fireter/Screens/report.dart';
 import 'package:firebase_database/firebase_database.dart';
 
-var version = 2.8;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -39,10 +37,13 @@ Future<void> main() async {
   final snapshot = await ref.child('version').get();
 
   newversion = snapshot.value;
-  update = (version != newversion || "$version" != newversion) ? true : false;
-  final auth = FirebaseAuth.instance;
+
+  final auth = await FirebaseAuth.instance;
   user = auth.currentUser?.displayName;
+  update = (version != newversion) ? true : false;
   if (update) {
+    print("version:$version");
+    print("New version:$newversion");
     print("true");
   } else {
     print("false");

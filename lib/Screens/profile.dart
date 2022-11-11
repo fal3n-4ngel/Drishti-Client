@@ -22,11 +22,6 @@ class _MyWidgetState extends State<ProfileScreenUi> {
       ],
       children: [
         Text("Primary Location : Thiruvanathapuram"),
-        ElevatedButton(
-            onPressed: () {
-              throw Exception("test");
-            },
-            child: Text("Crash App"))
       ],
     );
   }

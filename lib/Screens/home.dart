@@ -1,5 +1,4 @@
-// ignore_for_file: depend_on_referenced_packages, prefer_const_constructors, avoid_print
-
+// ignore_for_file: depend_on_referenced_packages, prefer_const_constructors
 import 'dart:async';
 
 import 'package:fireter/Mongo/mongovars.dart';
@@ -28,9 +27,7 @@ Future<void> dataset(refresh, context) async {
     image1 = AssetImage("assets/Clouds.png");
     humidity = body['main']['humidity'].toStringAsFixed(1);
     refresh();
-  } catch (e) {
-    print(e);
-  }
+  } catch (e) {}
 }
 
 class HomeScreen extends StatefulWidget {

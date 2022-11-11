@@ -85,9 +85,7 @@ Widget title(aler, color, grad) {
   } else {
     color = const Color.fromARGB(255, 255, 207, 16);
   }
-  if (kDebugMode) {
-    print(grad);
-  }
+
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     crossAxisAlignment: CrossAxisAlignment.start,

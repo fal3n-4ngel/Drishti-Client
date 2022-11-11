@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 
+var version = "2.8";
 var user;
 var net = true;
 var exapanded = false;
@@ -10,7 +11,6 @@ var weather1 = "..";
 var temperature = "..";
 var humidity = "..";
 var image1 = AssetImage("assets/Clouds.png");
-
 var nam;
 var id;
 var update = false;

@@ -1,4 +1,4 @@
-// ignore_for_file: unused_local_variable, avoid_print
+// ignore_for_file: unused_local_variable,
 
 import 'dart:developer';
 import 'package:mongo_dart/mongo_dart.dart';
@@ -40,7 +40,7 @@ class MongoDatabase {
         }
       ]);
     } catch (e) {
-      throw Exception(e);
+      
     }
   }
 
@@ -62,7 +62,7 @@ class MongoDatabase {
       var collection = db.collection(COLLECTION_NAME);
       data = await collection.find().toList();
     } catch (e) {
-      throw Exception(e);
+      
     }
   }
 }
