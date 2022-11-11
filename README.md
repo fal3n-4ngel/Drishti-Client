@@ -33,9 +33,10 @@ This app aims to make reporting and spreading the news of accidents and dangers 
 [![](https://skillicons.dev/icons?i=flutter,firebase,mongodb,androidstudio,figma)](https://skillicons.dev)
 
 
-## Contributors (Client Side)
+## Contributors 
 
-```markdown   
+```markdown  
+# Client Side
  Adithya Krishnan - [Full Stack App]
  Ferwin Lopez     - [UI/UX]
 ```
