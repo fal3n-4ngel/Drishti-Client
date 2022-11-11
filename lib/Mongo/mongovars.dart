@@ -1,8 +1,8 @@
-const MONGO_URL =
-    "XXX";
-const COLLECTION_NAME = 'admins';
+// ignore_for_file: constant_identifier_names, prefer_typing_uninitialized_variables
 
-var phonenumber = '';
+const MONGO_URL =
+    "mongodb+srv://admin:friendlyneighbourhoodtekys@cluster0.bq2w50o.mongodb.net/define?retryWrites=true&w=majority";
+const COLLECTION_NAME = 'admins';
 
 var location = '';
 var grade;
