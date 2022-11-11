@@ -183,7 +183,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
         SizedBox(
           //   %%%% The List View
-          height: 350,
+          height: 330,
           child: net
               ? ListView.builder(
                   padding: EdgeInsets.all(15),

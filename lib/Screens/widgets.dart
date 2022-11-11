@@ -80,13 +80,14 @@ Widget card2(index, refresh) {
 }
 
 Widget title(aler, color, grad) {
-  if (grad == '3') {
+  if (grad == '3' || grad == 3) {
     color = Color.fromARGB(255, 240, 7, 7);
-  } else if (grad == '2') {
+  } else if (grad == '2' || grad == 2) {
     color = Color.fromARGB(255, 236, 147, 37);
   } else {
     color = Color.fromARGB(255, 255, 207, 16);
   }
+  print(grad);
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     crossAxisAlignment: CrossAxisAlignment.start,

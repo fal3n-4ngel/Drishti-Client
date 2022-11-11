@@ -185,7 +185,7 @@ class _reportui extends State<reportui> {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                                 padding: EdgeInsets.all(10),
-                                duration: Duration(milliseconds: 400),
+                                duration: Duration(milliseconds: 800),
                                 content: Text('Submitting Data')),
                           );
                           setState(() {
@@ -193,7 +193,7 @@ class _reportui extends State<reportui> {
                             var user1 = auth.currentUser?.displayName;
                             user = "$user1";
                             location = locationController.text;
-                            grade = dropdownvalue;
+                            grade = gradeController.text;
                             alert = alertController.text;
                             details = detailsController.text;
                             faculty = facultyController.text;
