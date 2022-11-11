@@ -19,7 +19,7 @@ This app aims to make reporting and spreading the news of accidents and dangers 
 
 
 ## Screenshots
-[Prototype link(figma)](https://www.figma.com/proto/iY2avWglgTX1P9ePy54zIr/App?node-id=87%3A97&scaling=min-zoom&page-id=24%3A330&starting-point-node-id=99%3A137)
+[Prototype link](https://www.figma.com/proto/iY2avWglgTX1P9ePy54zIr/App?node-id=87%3A97&scaling=min-zoom&page-id=24%3A330&starting-point-node-id=99%3A137) {Thanks to [@Ferwin](https://github.com/Fer-Win)}]
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 <p align="center">
