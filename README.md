@@ -1,6 +1,11 @@
 # Drishti 
 Drishti is a software created as a project for Define hack 2022, which we decided to build a little more.
 This app aims to make reporting and spreading the news of accidents and dangers easier and effective. 
+### Dev Branch
+   + Has more beta features.
+   + Google Crashlytics.
+   + Google Analytics.
+   + Vesrion Control.
 
 ## Drishti Client
  Drishti client is a flutter application that is available to public through which they can report and get updates
