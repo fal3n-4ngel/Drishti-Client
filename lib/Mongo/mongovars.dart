@@ -1,5 +1,5 @@
 const MONGO_URL =
-    "mongodb+srv://admin:friendlyneighbourhoodtekys@cluster0.bq2w50o.mongodb.net/define?retryWrites=true&w=majority";
+    "XXX";
 const COLLECTION_NAME = 'admins';
 
 var phonenumber = '';
