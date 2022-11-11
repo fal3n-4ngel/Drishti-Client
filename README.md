@@ -49,13 +49,13 @@ This app aims to make reporting and spreading the news of accidents and dangers 
 
 ```markdown  
 # Client Side
- Adithya Krishnan - [Full Stack App]
- Ferwin Lopez     - [UI/UX]
+ + Adithya Krishnan - [Full Stack App]
+ + Ferwin Lopez     - [UI/UX]
  
- ## Friendly Neighborhood Tekys
-   Liya Susan Biju      - Full Stack Web
-   Abhishek Raman R     - Front End Developer
-   Christina Mathhews   - Front End Developer
+# Team (Friendly Neighborhood Tekys)
+   + Liya Susan Biju      - Full Stack Web
+   + Abhishek Raman R     - Front End Developer
+   + Christina Mathhews   - Front End Developer
     
 ```
  
