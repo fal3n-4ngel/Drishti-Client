@@ -1,7 +1,6 @@
 // ignore_for_file: unnecessary_const
 
 import 'package:fireter/constants.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:fireter/Mongo/mongovars.dart';
 import 'package:fireter/Mongo/mongodb.dart';

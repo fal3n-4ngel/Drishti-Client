@@ -27,27 +27,6 @@ Future<void> main() async {
   FlutterFireUIAuth.configureProviders([
     const EmailProviderConfiguration(),
   ]);
-  FlutterError.onError = (errorDetails) {
-    FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
-  };
-  // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics
-
-  FirebaseDatabase database = FirebaseDatabase.instance;
-  DatabaseReference ref = FirebaseDatabase.instance.ref();
-  final snapshot = await ref.child('version').get();
-
-  newversion = snapshot.value;
-
-  final auth = await FirebaseAuth.instance;
-  user = auth.currentUser?.displayName;
-  update = (version != newversion) ? true : false;
-  if (update) {
-    print("version:$version");
-    print("New version:$newversion");
-    print("true");
-  } else {
-    print("false");
-  }
   runApp(const MyApp());
 }
 

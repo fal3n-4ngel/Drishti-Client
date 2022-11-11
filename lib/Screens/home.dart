@@ -5,7 +5,6 @@ import 'package:fireter/Mongo/mongovars.dart';
 import 'package:fireter/Mongo/mongodb.dart';
 import 'package:fireter/Screens/profile.dart';
 import 'package:fireter/Screens/widgets.dart';
-import 'package:fireter/main.dart';
 import 'package:flutter/material.dart';
 import 'package:fireter/constants.dart';
 import 'package:http/http.dart' as http;
@@ -37,12 +36,6 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-Future<void> _launchURL({required String url}) async {
-  if (!await launchUrl(Uri.parse(url))) {
-    throw 'Could not launch $url';
-  }
-}
-
 class _HomeScreenState extends State<HomeScreen> {
   refresh() {
     setState(() {
@@ -66,43 +59,6 @@ class _HomeScreenState extends State<HomeScreen> {
       });
     }
 
-    Timer(
-        const Duration(seconds: 3),
-        () => {
-              update
-                  ? showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        update = false;
-                        return Expanded(
-                          child: AlertDialog(
-                            title: Text('New Update'),
-                            content: Text('Version $newversion now available'),
-                            actions: [
-                              ElevatedButton(
-                                onPressed: () {
-                                  _launchURL(
-                                      url:
-                                          "https://github.com/fal3n-4ngel/Drishti-Client/releases");
-                                  Navigator.of(context, rootNavigator: true)
-                                      .pop();
-                                },
-                                child: Text('Download Now'),
-                              ),
-                              ElevatedButton(
-                                onPressed: () {
-                                  Navigator.of(context, rootNavigator: true)
-                                      .pop();
-                                },
-                                child: Text('Later'),
-                              ),
-                            ],
-                          ),
-                        );
-                      },
-                    )
-                  : null
-            });
     return Scaffold(
       body: Column(children: [
         // Home Screen app bar
@@ -236,17 +192,6 @@ class _HomeScreenState extends State<HomeScreen> {
               : Image(image: AssetImage("assets/noalerts.jpg")),
         ),
       ]),
-/*
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Color.fromARGB(255, 236, 236, 236),
-        foregroundColor: Colors.red,
-        onPressed: () {},
-        child: const Icon(
-          Icons.add_location_alt,
-        ),
-      ),
-
-      */
     );
   }
 }
