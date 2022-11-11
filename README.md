@@ -56,6 +56,8 @@ This app aims to make reporting and spreading the news of accidents and dangers 
    + Liya Susan Biju      - Full Stack Web
    + Abhishek Raman R     - Front End Developer
    + Christina Mathhews   - Front End Developer
+# Special Thanks to
+   + Amy Susan 
     
 ```
  
