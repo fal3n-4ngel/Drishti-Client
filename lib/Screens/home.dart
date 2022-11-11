@@ -23,8 +23,8 @@ Future<void> dataset(refresh, context) async {
     weather1 = body['weather'][0]['main'];
     var temp = body['main']['temp'] - 273.15;
     temperature = temp.toStringAsFixed(1);
-    image1 = AssetImage("assets/Clouds.png");
     humidity = body['main']['humidity'].toStringAsFixed(1);
+    image1 = AssetImage("assets/$weather1.png");
     refresh();
   } catch (e) {}
 }
@@ -123,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: image1,
-                        fit: BoxFit.cover,
+                        fit: BoxFit.fill,
                       ),
                     ),
                   ),
