@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'dart:async';
 
 Future<void> weather() async {
-  String key = '57469bdd737a35670d966f80a8d64451';
+  String key = 'XXX';
   String url = 'http://api.openweathermap.org/data/2.5/weather?';
   String fullurl = "${url}q=kollam&appid=$key";
   Uri fullurl1 = Uri.parse(fullurl);
