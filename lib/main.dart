@@ -22,6 +22,9 @@ Future<void> main() async {
     name: 'Flutter',
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  FlutterError.onError = (errorDetails) {
+    FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+  };
 
   await MongoDatabase.connect();
   FlutterFireUIAuth.configureProviders([
